@@ -1,0 +1,37 @@
+body {
+    background-color: rgba(219, 255, 237, 1);
+    color: rgba(0, 26, 13, 1);
+    display: grid;
+    grid-template-columns: 162px 1fr;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+a {
+    color: rgba(0, 26, 13, 1);
+    text-decoration: none;
+}
+
+header {
+    height: 40px;
+}
+nav {
+    display: flex;
+    flex-direction: column;
+    border: solid 2px;
+}
+
+nav li{
+    border-bottom: solid 2px;
+    width: 160px;
+    height: 40px;
+}
+
+#into-link {
+    border-top:solid 2px;
+}
