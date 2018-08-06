@@ -22,12 +22,15 @@ a {
 
 header {
     font-size: 30px;
+    font-weight: 700;
     color: rgba(21, 33, 17, 1);
 }
 
 #navbar header {
     height: 65px;
     text-align: center;
+    padding: 7px;
+    margin-top: 7px;
 }
 
 nav {
@@ -50,8 +53,12 @@ nav li{
 }
 
 main {
-    padding: 20px;
+    padding: 8px 35px 35px 35px;
     margin-left: 180px;
+}
+
+main header {
+    margin-top: 25px;
 }
 
 .code-ex {
