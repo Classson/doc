@@ -7,7 +7,7 @@ body {
     padding: 0px;
 }
 
-ul {
+nav ul {
     list-style-type: none;
     padding: 0px;
 }
@@ -34,4 +34,16 @@ nav li{
 
 #into-link {
     border-top:solid 2px;
+}
+
+main {
+    padding: 20px;
+}
+
+.code-ex {
+    color: whitesmoke;
+    background-color: rgba(21, 33, 17, 0.9);
+    margin: 5px 20px 5px 20px;
+    padding: 15px;
+    display: inline-block;
 }
