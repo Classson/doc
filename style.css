@@ -1,8 +1,6 @@
 body {
     background-color: rgba(219, 255, 237, 1);
     color: rgba(0, 26, 13, 1);
-    display: grid;
-    grid-template-columns: 162px 1fr;
     margin: 0px;
     padding: 0px;
 }
@@ -18,11 +16,12 @@ a {
 }
 
 header {
-    height: 40px;
+    height: 65px;
 }
 nav {
-    display: flex;
-    flex-direction: column;
+    position: fixed;
+    width: 160px;
+    height: 100%;
     border: solid 2px;
 }
 
@@ -38,12 +37,19 @@ nav li{
 
 main {
     padding: 20px;
+    margin-left: 160px;
+}
+
+header {
+    font-size: 30px;
+    color: rgba(21, 33, 17, 1);
+    font-family: sans-serif;
 }
 
 .code-ex {
     color: whitesmoke;
     background-color: rgba(21, 33, 17, 0.9);
-    margin: 5px 20px 5px 20px;
+    margin: 5px 40px 5px 40px;
     padding: 15px;
     display: inline-block;
 }
