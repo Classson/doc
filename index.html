@@ -33,9 +33,11 @@
                 <li>The JavaScript statements that define the function, enclosed in curly brackets, { }.</li>
             </ul>
             <p>For example, the following code defines a simple function named square:</p>
-            <div class="code-ex"><code>function square(number) {
-                return number * number;
-                }</code></div>
+            <div class="code-ex"><code>
+                function square(number) { <br/>
+                  return number * number; <br/>
+                }
+                </code></div>
             <p>The function square takes one parameter, called number. The function consists of one statement that says to return the parameter of the function (that is, number) multiplied by itself. The statement return specifies the value returned by the function.</p>
             
             <div class="code-ex"><code>return number * number;</code></div>
@@ -44,17 +46,17 @@
             <p>If you pass an object (i.e. a non-primitive value, such as Array or a user-defined object) as a parameter and the function changes the object's properties, that change is visible outside the function, as shown in the following example:</p>
             
             <div class="code-ex"><code>
-                function myFunc(theObject) {
-                  theObject.make = 'Toyota';
-                }
-
-                var mycar = {make: 'Honda', model: 'Accord', year: 1998};
-                var x, y;
-
-                x = mycar.make; // x gets the value "Honda"
-
-                myFunc(mycar);
-                y = mycar.make; // y gets the value "Toyota"
+                function myFunc(theObject) { <br/>
+                  theObject.make = 'Toyota'; <br/>
+                }<br/>
+                <br/>
+                var mycar = {make: 'Honda', model: 'Accord', year: 1998};<br/>
+                var x, y;<br/>
+                <br/>
+                x = mycar.make; // x gets the value "Honda"<br/>
+                <br/>
+                myFunc(mycar);<br/>
+                y = mycar.make; // y gets the value "Toyota"<br/>
                 // (the make property was changed by the function)
                 </code></div>
         </section>
@@ -62,39 +64,40 @@
         <section class="main-section" id="Function_expressions">
             <header>Function expressions</header>
             <p>While the function declaration above is syntactically a statement, functions can also be created by a function expression. Such a function can be anonymous; it does not have to have a name. For example, the function square could have been defined as:</p>
-            <div class="code-ex"><code>var square = function(number) { return number * number; };
+            <div class="code-ex">
+                <code>var square = function(number) { return number * number; }; <br/>
                 var x = square(4); // x gets the value 16</code></div>
             <p>However, a name can be provided with a function expression and can be used inside the function to refer to itself, or in a debugger to identify the function in stack traces:</p>
-            <div class="code-ex"><code>var factorial = function fac(n) { return n &#60; 2 ? 1 : n * fac(n - 1); };
-
+            <div class="code-ex"><code>var factorial = function fac(n) { return n &#60; 2 ? 1 : n * fac(n - 1); };<br/>
+                <br/>
                 console.log(factorial(3));</code></div>
             
             <p>Function expressions are convenient when passing a function as an argument to another function. The following example shows a map function that should receive a function as first argument and an array as second argument. </p>
             
             <div class="code-ex"><code>
-                function map(f, a) {
-                var result = [],i; // Create a new Array
-                for (i = 0; i != a.length; i++)
-                result[i] = f(a[i]);
-                return result;
+                function map(f, a) { <br/>
+                var result = [],i; // Create a new Array <br/>
+                for (i = 0; i != a.length; i++)<br/>
+                result[i] = f(a[i]);<br/>
+                return result;<br/>
                 }
                 </code></div>
             
             <p>In the following code our function receives a function defined by a function expression and executes it for every element of the array received as a second argument. </p>
             
             <div class="code-ex"><code>
-                function map(f, a) {
-                  var result = []; // Create a new Array
-                  var i; // Declare variable
-                  for (i = 0; i != a.length; i++)
-                    result[i] = f(a[i]);
-                      return result;
-                }
-                var f = function(x) {
-                   return x * x * x; 
-                }
-                var numbers = [0, 1, 2, 5, 10];
-                var cube = map(f,numbers);
+                function map(f, a) { <br/>
+                  var result = []; // Create a new Array <br/>
+                  var i; // Declare variable <br/>
+                  for (i = 0; i != a.length; i++)<br/>
+                    result[i] = f(a[i]);<br/>
+                      return result;<br/>
+                }<br/>
+                var f = function(x) {<br/>
+                   return x * x * x; <br/>
+                }<br/>
+                var numbers = [0, 1, 2, 5, 10];<br/>
+                var cube = map(f,numbers);<br/>
                 console.log(cube);
                 </code></div>
             <p>Function returns: [0, 1, 8, 125, 1000].</p>
@@ -102,11 +105,11 @@
             <p>In JavaScript, a function can be defined based on a condition. For example, the following function definition defines myFunc only if num equals 0:</p>
             
             <div class="code-ex"><code>
-                var myFunc;
-                if (num === 0) {
-                  myFunc = function(theObject) {
-                    theObject.make = 'Toyota';
-                  }
+                var myFunc;<br/>
+                if (num === 0) {<br/>
+                  myFunc = function(theObject) {<br/>
+                    theObject.make = 'Toyota';<br/>
+                  }<br/>
                 }
                 </code></div>
             <p>In addition to defining functions as described here, you can also use the Function constructor to create functions from a string at runtime, much like eval().</p>
@@ -124,37 +127,37 @@
 
             Functions must be in scope when they are called, but the function declaration can be hoisted (appear below the call in the code), as in this example:</p>
             
-            <div class="code-ex"><code>console.log(square(5));
-                /* ... */
+            <div class="code-ex"><code>console.log(square(5));<br/>
+                /* ... */<br/>
                 function square(n) { return n * n; }</code></div>
             
             <p>The scope of a function is the function in which it is declared, or the entire program if it is declared at the top level.</p>
             
             <p>Note: This works only when defining the function using the above syntax (i.e. function funcName(){}). The code below will not work. That means, function hoisting only works with function declaration and not with function expression.</p>
             
-            <div class="code-ex"><code>console.log(square); // square is hoisted with an initial value undefined.
-                console.log(square(5)); // TypeError: square is not a function
-                var square = function(n) { 
-                return n * n; 
+            <div class="code-ex"><code>console.log(square); // square is hoisted with an initial value undefined.<br/>
+                console.log(square(5)); // TypeError: square is not a function<br/>
+                var square = function(n) { <br/>
+                return n * n; <br/>
                 }</code></div>
             <p>The arguments of a function are not limited to strings and numbers. You can pass whole objects to a function. The show_props() function (defined in Working with objects) is an example of a function that takes an object as an argument.</p>
             
             <p>A function can call itself. For example, here is a function that computes factorials recursively:</p>
             
-            <div class="code-ex"><code>function factorial(n) {
-              if ((n === 0) || (n === 1))
-                return 1;
-              else
-                return (n * factorial(n - 1));
+            <div class="code-ex"><code>function factorial(n) {<br/>
+              if ((n === 0) || (n === 1))<br/>
+                return 1;<br/>
+              else<br/>
+                return (n * factorial(n - 1));<br/>
                 }</code></div>
             
             <p>You could then compute the factorials of one through five as follows:</p>
             
-            <div class="code-ex"><code>var a, b, c, d, e;
-                a = factorial(1); // a gets the value 1
-                b = factorial(2); // b gets the value 2
-                c = factorial(3); // c gets the value 6
-                d = factorial(4); // d gets the value 24
+            <div class="code-ex"><code>var a, b, c, d, e;<br/>
+                a = factorial(1); // a gets the value 1<br/>
+                b = factorial(2); // b gets the value 2<br/>
+                c = factorial(3); // c gets the value 6<br/>
+                d = factorial(4); // d gets the value 24<br/>
                 e = factorial(5); // e gets the value 120</code></div>
             
             <p>There are other ways to call functions. There are often cases where a function needs to be called dynamically, or the number of arguments to a function vary, or in which the context of the function call needs to be set to a specific object determined at runtime. It turns out that functions are, themselves, objects, and these objects in turn have methods (see the Function object). One of these, the apply() method, can be used to achieve this goal.</p>
@@ -163,30 +166,30 @@
             <header>Function scope</header>
             <p>Variables defined inside a function cannot be accessed from anywhere outside the function, because the variable is defined only in the scope of the function. However, a function can access all variables and functions defined inside the scope in which it is defined. In other words, a function defined in the global scope can access all variables defined in the global scope. A function defined inside another function can also access all variables defined in its parent function and any other variable to which the parent function has access.</p>
             <div class="code-ex"><code>
-                // The following variables are defined in the global scope
-                var num1 = 20,
-                    num2 = 3,
-                    name = 'Chamahk';
-
-                // This function is defined in the global scope
-                function multiply() {
-                  return num1 * num2;
-                }
-
-                multiply(); // Returns 60
-
-                // A nested function example
-                function getScore() {
-                  var num1 = 2,
-                      num2 = 3;
-
-                  function add() {
-                    return name + ' scored ' + (num1 + num2);
-                  }
-
-                  return add();
-                }
-
+                // The following variables are defined in the global scope<br/>
+                var num1 = 20,<br/>
+                    num2 = 3,<br/>
+                    name = 'Chamahk';<br/>
+                <br/>
+                // This function is defined in the global scope<br/>
+                function multiply() {<br/>
+                  return num1 * num2;<br/>
+                }<br/>
+                <br/>
+                multiply(); // Returns 60<br/>
+                <br/>
+                // A nested function example<br/>
+                function getScore() {<br/>
+                  var num1 = 2,<br/>
+                      num2 = 3;<br/>
+                <br/>
+                  function add() {<br/>
+                    return name + ' scored ' + (num1 + num2);<br/>
+                  }<br/>
+                <br/>
+                  return add();<br/>
+                }<br/>
+                <br/>
                 getScore(); // Returns "Chamahk scored 5"
                 </code></div>
         </section>
@@ -202,8 +205,8 @@
             
             <p>For example, consider the following function definition:</p>
             
-            <div class="code-ex"><code>var foo = function bar() {
-               // statements go here
+            <div class="code-ex"><code>var foo = function bar() {<br/>
+               // statements go here<br/>
                 };</code></div>
             
             <p>Within the function body, the following are all equivalent:</p>
@@ -216,11 +219,11 @@
             
             <p>A function that calls itself is called a recursive function. In some ways, recursion is analogous to a loop. Both execute the same code multiple times, and both require a condition (to avoid an infinite loop, or rather, infinite recursion in this case). For example, the following loop:</p>
             
-            <div class="code-ex"><code>var x = 0;
-            while (x &#60; 10)x  // "x &#60; 10" is the loop condition
-               // do stuff
-               x++;
-                } --></code></div>
+            <div class="code-ex"><code>var x = 0;<br/>
+            while (x &#60; 10)x  // "x &#60; 10" is the loop condition<br/>
+               // do stuff<br/>
+               x++;<br/>
+                }</code></div>
             <p>can be converted into a recursive function and a call to that function:</p>
             
             <div class="code-ex"><code>function loop(x) {
@@ -232,13 +235,13 @@
                 loop(0);</code></div>
             <p>However, some algorithms cannot be simple iterative loops. For example, getting all the nodes of a tree structure (e.g. the DOM) is more easily done using recursion:</p>
             
-            <div class="code-ex"><code>function walkTree(node) {
-              if (node == null) // 
-                return;
-              // do something with node
-              for (var i = 0; i &#60; node.childNodes.length; i++) {
-                walkTree(node.childNodes[i]);
-              }
+            <div class="code-ex"><code>function walkTree(node) {<br/>
+              if (node == null) // <br/>
+                return;<br/>
+              // do something with node<br/>
+              for (var i = 0; i &#60; node.childNodes.length; i++) {<br/>
+                walkTree(node.childNodes[i]);<br/>
+              }<br/>
                 }</code></div>
             
             <p>Compared to the function loop, each recursive call itself makes many recursive calls here.
@@ -247,24 +250,24 @@
 
             The stack-like behavior can be seen in the following example:</p>
             
-            <div class="code-ex"><code>function foo(i) {
-              if (i &#60; 0)
-                return;
-              console.log('begin: ' + i);
-              foo(i - 1);
-              console.log('end: ' + i);
-            }
-            foo(3);
-
-            // Output:
-
-            // begin: 3
-            // begin: 2
-            // begin: 1
-            // begin: 0
-            // end: 0
-            // end: 1
-            // end: 2
+            <div class="code-ex"><code>function foo(i) {<br/>
+              if (i &#60; 0)<br/>
+                return;<br/>
+              console.log('begin: ' + i);<br/>
+              foo(i - 1);<br/>
+              console.log('end: ' + i);<br/>
+            }<br/>
+            foo(3);<br/>
+                <br/>
+            // Output:<br/>
+                <br/>
+            // begin: 3<br/>
+            // begin: 2<br/>
+            // begin: 1<br/>
+            // begin: 0<br/>
+            // end: 0<br/>
+            // end: 1<br/>
+            // end: 2<br/>
                 // end: 3</code></div>
         </section>
     </main>
