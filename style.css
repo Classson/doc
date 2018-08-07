@@ -71,7 +71,7 @@ main header {
 @media (max-width: 400px) {
     nav {
     width: 100%;
-    max-height:190px;
+    max-height:196px;
     overflow: scroll;
     border: solid 2px;
 }
@@ -103,5 +103,30 @@ main header {
     #Introduction{
         margin-top: 220px;
     }
+    
+    
+    
+    #Introduction:target {
+        padding-top: 200px;
+    }
+
+    #Function_declarations:target {
+        padding-top: 200px;
+    }
+
+    #Function_expressions:target {
+        padding-top: 200px;
+}
+    #Calling_functions:target {
+        padding-top: 200px;
+}
+    
+    ##Function_scope:target {
+        padding-top: 200px;
+}
+    
+    #Recursion:target {
+        padding-top: 200px;
+}
     
 }
