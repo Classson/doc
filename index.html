@@ -65,7 +65,7 @@
             <div class="code-ex"><code>var square = function(number) { return number * number; };
                 var x = square(4); // x gets the value 16</code></div>
             <p>However, a name can be provided with a function expression and can be used inside the function to refer to itself, or in a debugger to identify the function in stack traces:</p>
-            <div class="code-ex"><code>var factorial = function fac(n) { return n <!--<--> 2 ? 1 : n * fac(n - 1); };
+            <div class="code-ex"><code>var factorial = function fac(n) { return n &#60; 2 ? 1 : n * fac(n - 1); };
 
                 console.log(factorial(3));</code></div>
             
@@ -217,14 +217,14 @@
             <p>A function that calls itself is called a recursive function. In some ways, recursion is analogous to a loop. Both execute the same code multiple times, and both require a condition (to avoid an infinite loop, or rather, infinite recursion in this case). For example, the following loop:</p>
             
             <div class="code-ex"><code>var x = 0;
-            while (x <!--<--> 10)x  // "x <!--<--> 10" is the loop condition
+            while (x &#60; 10)x  // "x &#60; 10" is the loop condition
                // do stuff
                x++;
                 } --></code></div>
             <p>can be converted into a recursive function and a call to that function:</p>
             
             <div class="code-ex"><code>function loop(x) {
-                  if (x >= 10) // "x >= 10" is the exit condition (equivalent to "!(x <!--<--> 10)")
+                  if (x >= 10) // "x >= 10" is the exit condition (equivalent to "!(x &#60; 10)")
                     return;
                   // do stuff
                   loop(x + 1); // the recursive call
@@ -236,7 +236,7 @@
               if (node == null) // 
                 return;
               // do something with node
-              for (var i = 0; i <!--<--> node.childNodes.length; i++) {
+              for (var i = 0; i &#60; node.childNodes.length; i++) {
                 walkTree(node.childNodes[i]);
               }
                 }</code></div>
@@ -248,7 +248,7 @@
             The stack-like behavior can be seen in the following example:</p>
             
             <div class="code-ex"><code>function foo(i) {
-              if (i <!--<--> 0)
+              if (i &#60; 0)
                 return;
               console.log('begin: ' + i);
               foo(i - 1);
